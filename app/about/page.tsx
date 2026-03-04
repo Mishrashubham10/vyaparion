@@ -1,5 +1,7 @@
+'use client';
+
 import { motion } from 'framer-motion';
-import { Target, Eye, Users } from 'lucide-react';
+import { Target, Eye } from 'lucide-react';
 import {
   fadeUp,
   staggerContainer,
