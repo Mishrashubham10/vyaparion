@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { ShoppingCart } from 'lucide-react';
 import { fadeUp, staggerContainer, scaleIn } from '@/lib/motion';
 import { categories, products } from '@/data/products';
+import ProductCard from '@/components/products/ProdcutsCard';
 
 export default function ProductsPage() {
   const [active, setActive] = useState('All');
@@ -70,32 +71,7 @@ export default function ProductsPage() {
                 whileHover={{ y: -8 }}
                 className="glass-card rounded-2xl overflow-hidden card-elevated group"
               >
-                <div className="p-8 text-center bg-muted/30">
-                  <span className="text-6xl group-hover:scale-110 inline-block transition-transform duration-300">
-                    {p.img}
-                  </span>
-                </div>
-                <div className="p-5">
-                  <span className="text-[10px] uppercase tracking-wider text-accent font-semibold">
-                    {p.category}
-                  </span>
-                  <h4 className="font-heading font-semibold text-foreground mt-1 mb-1">
-                    {p.title}
-                  </h4>
-                  <p className="text-muted-foreground text-xs mb-3">{p.desc}</p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-accent font-bold text-lg">
-                      {p.price}
-                    </span>
-                    <motion.button
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                      className="w-9 h-9 rounded-lg bg-accent text-accent-foreground flex items-center justify-center"
-                    >
-                      <ShoppingCart size={16} />
-                    </motion.button>
-                  </div>
-                </div>
+                <ProductCard product={p} />
               </motion.div>
             ))}
           </motion.div>

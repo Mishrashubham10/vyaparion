@@ -4,7 +4,8 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Search, ShoppingCart } from 'lucide-react';
+import { Menu, X, ShoppingCart, LogIn } from 'lucide-react';
+import { useCart } from '@/context/CartContext';
 
 const navLinks = [
   { to: '/', label: 'Home' },
@@ -17,28 +18,22 @@ const navLinks = [
 
 export const Header = () => {
   const pathname = usePathname();
+  const { totalItems } = useCart();
 
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   /**
-   * HANDLE SCROLL EFFECT
+   * SCROLL EFFECT
    */
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-
     const onScroll = () => {
       const shouldScroll = window.scrollY > 20;
-
-      // Prevent unnecessary state updates
       setScrolled((prev) => (prev !== shouldScroll ? shouldScroll : prev));
     };
 
     window.addEventListener('scroll', onScroll);
-
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-    };
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   return (
@@ -87,20 +82,31 @@ export const Header = () => {
 
         {/* DESKTOP ACTION BUTTONS */}
         <div className="hidden lg:flex items-center gap-3">
-          <button className="p-2 rounded-lg text-foreground/60 hover:text-foreground hover:bg-muted transition-colors">
-            <Search size={18} />
-          </button>
-
-          <button className="relative p-2 rounded-lg text-foreground/60 hover:text-foreground hover:bg-muted transition-colors">
+          {/* CART */}
+          <Link
+            href="/cart"
+            className="relative p-2 rounded-lg text-foreground/60 hover:text-foreground hover:bg-muted transition-colors"
+          >
             <ShoppingCart size={18} />
 
-            <span className="absolute -top-0.5 -right-0.5 w-4 h-4 rounded-full bg-accent text-accent-foreground text-[10px] flex items-center justify-center font-bold">
-              3
-            </span>
-          </button>
+            {totalItems > 0 && (
+              <span className="absolute -top-0.5 -right-0.5 min-w-4 h-4 px-1 rounded-full bg-accent text-accent-foreground text-[10px] flex items-center justify-center font-bold">
+                {totalItems}
+              </span>
+            )}
+          </Link>
+
+          {/* LOGIN */}
+          <Link
+            href="/login"
+            className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-foreground/70 hover:text-foreground hover:bg-muted transition-colors"
+          >
+            <LogIn size={16} />
+            Login
+          </Link>
         </div>
 
-        {/* MOBILE MENU TOGGLE */}
+        {/* MOBILE MENU BUTTON */}
         <button
           onClick={() => setMobileOpen((prev) => !prev)}
           className="lg:hidden p-2 text-foreground"
@@ -129,6 +135,7 @@ export const Header = () => {
                 >
                   <Link
                     href={link.to}
+                    onClick={() => setMobileOpen(false)}
                     className={`block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                       pathname === link.to
                         ? 'bg-accent/10 text-accent'
@@ -139,6 +146,16 @@ export const Header = () => {
                   </Link>
                 </motion.div>
               ))}
+
+              {/* MOBILE LOGIN */}
+              <Link
+                href="/login"
+                onClick={() => setMobileOpen(false)}
+                className="flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium text-foreground/70 hover:bg-muted transition-colors"
+              >
+                <LogIn size={16} />
+                Login
+              </Link>
             </nav>
           </motion.div>
         )}

@@ -13,8 +13,8 @@ const contactInfo = [
     title: 'Visit Us',
     detail: '123 Business Avenue, Mumbai, Maharashtra 400001, India',
   },
-  { icon: Phone, title: 'Call Us', detail: '+91 98765 43210' },
-  { icon: Mail, title: 'Email Us', detail: 'info@vyaparion.com' },
+  { icon: Phone, title: 'Call Us', detail: '+91 8169757162' },
+  { icon: Mail, title: 'Email Us', detail: 'vypariontrapvtltd@gmail.com' },
 ];
 
 export default function ContactPage() {
@@ -145,7 +145,7 @@ export default function ContactPage() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="rounded-2xl overflow-hidden h-[400px] lg:h-auto"
+              className="rounded-2xl overflow-hidden h-100 lg:h-auto"
             >
               <iframe
                 title="Vyaparion Traders Location"

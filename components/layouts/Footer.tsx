@@ -1,11 +1,8 @@
-'use client';
+"use client";
 
 import { motion } from 'framer-motion';
 import {
   ArrowUp,
-  Mail,
-  Phone,
-  MapPin,
   Facebook,
   Twitter,
   Linkedin,
@@ -95,20 +92,23 @@ export const Footer = () => {
             viewport={{ once: true }}
             custom={2}
           >
-            <h4 className="font-heading font-semibold mb-4">Contact Info</h4>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-3 text-sm text-primary-foreground/60">
-                <MapPin size={16} className="mt-0.5 shrink-0 text-accent" />
-                123 Business Avenue, Mumbai, India
-              </li>
-              <li className="flex items-center gap-3 text-sm text-primary-foreground/60">
-                <Phone size={16} className="shrink-0 text-accent" />
-                +91 98765 43210
-              </li>
-              <li className="flex items-center gap-3 text-sm text-primary-foreground/60">
-                <Mail size={16} className="shrink-0 text-accent" />
-                info@vyaparion.com
-              </li>
+            <h4 className="font-heading font-semibold mb-4">Policies</h4>
+            <ul className="space-y-2.5">
+              {[
+                { label: 'Privacy Policy', to: '/policy' },
+                { label: 'Return & Refund', to: '/return' },
+                { label: 'Terms & Conditions', to: '/terms' },
+                { label: 'Shipping Policy', to: '/shipping' },
+              ].map((item) => (
+                <li key={item.to}>
+                  <Link
+                    href={item.to}
+                    className="text-sm text-primary-foreground/60 hover:text-accent transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </motion.div>
 
