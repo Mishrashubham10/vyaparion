@@ -17,7 +17,7 @@ const sections = [
   {
     title: 'How to Initiate a Return',
     content:
-      'Contact our support team at returns@vyaparion.com with your order number. We will provide a return shipping label and instructions.',
+      'Contact our support team at vypariontrapvtltd@gmail.com with your order number. We will provide a return shipping label and instructions.',
   },
   {
     title: 'Refund Processing',

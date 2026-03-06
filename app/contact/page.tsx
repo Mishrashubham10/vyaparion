@@ -11,7 +11,7 @@ const contactInfo = [
   {
     icon: MapPin,
     title: 'Visit Us',
-    detail: '123 Business Avenue, Mumbai, Maharashtra 400001, India',
+    detail: '5th floor 506A, Crescent Tower, Andheri West, Mumbai - 400053, India',
   },
   { icon: Phone, title: 'Call Us', detail: '+91 8169757162' },
   { icon: Mail, title: 'Email Us', detail: 'vypariontrapvtltd@gmail.com' },

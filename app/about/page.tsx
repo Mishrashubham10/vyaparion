@@ -13,37 +13,35 @@ import { SectionHeading } from '@/components/layouts/SectionHeading';
 
 const timeline = [
   {
-    year: '2010',
+    year: '2026',
     title: 'Founded',
     desc: 'Vyaparion Traders established in Mumbai, India',
   },
   {
-    year: '2014',
+    year: '2026',
     title: 'Global Expansion',
     desc: 'Expanded operations to 15+ countries',
   },
   {
-    year: '2018',
+    year: '2026',
     title: 'Tech Integration',
     desc: 'Launched IoT-enabled supply chain solutions',
   },
   {
-    year: '2022',
+    year: '2026',
     title: '500+ Clients',
     desc: 'Surpassed 500 active global partnerships',
   },
   {
-    year: '2025',
+    year: '2026',
     title: 'Market Leader',
     desc: 'Recognized as a top trading firm in Asia-Pacific',
   },
 ];
 
 const team = [
-  { name: 'Arjun Mehta', role: 'Founder & CEO', emoji: '👨‍💼' },
-  { name: 'Priya Sharma', role: 'COO', emoji: '👩‍💼' },
-  { name: 'David Lee', role: 'Head of Global Sales', emoji: '🧑‍💼' },
-  { name: 'Fatima Al-Hassan', role: 'Supply Chain Director', emoji: '👩‍🔬' },
+  { name: 'Shivam Kumar Maury', role: 'Director', emoji: '👨‍💼' },
+  { name: 'Shambhuraje Pandurang Mule', role: 'Director', emoji: '👩‍💼' },
 ];
 
 const AboutPage = () => (
@@ -72,7 +70,7 @@ const AboutPage = () => (
       </div>
     </section>
 
-    {/* Introduction */}
+    {/* ============== INTRODUCTION =============== */}
     <section className="py-20">
       <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-12">
         <motion.div
@@ -113,7 +111,7 @@ const AboutPage = () => (
       </div>
     </section>
 
-    {/* Mission & Vision */}
+    {/* ============= MISSION & VISSION ============== */}
     <section className="py-20 bg-muted/50">
       <div className="container mx-auto px-4">
         <SectionHeading
@@ -160,7 +158,7 @@ const AboutPage = () => (
       </div>
     </section>
 
-    {/* Timeline */}
+    {/* =============== TIMELINE =============== */}
     <section className="py-20">
       <div className="container mx-auto px-4">
         <SectionHeading
@@ -197,7 +195,7 @@ const AboutPage = () => (
       </div>
     </section>
 
-    {/* Team */}
+    {/* =============== TEAM ================= */}
     <section className="py-20 bg-muted/50">
       <div className="container mx-auto px-4">
         <SectionHeading
@@ -209,7 +207,7 @@ const AboutPage = () => (
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6"
         >
           {team.map((member) => (
             <motion.div

@@ -5,10 +5,11 @@ import { products } from '@/data/products';
 import { motion } from 'framer-motion';
 import { ShoppingCart } from 'lucide-react';
 import Image from 'next/image';
+import { useCart } from '@/context/CartContext';
 
 export default function ProductDetailsPage() {
   const { productId } = useParams();
-  console.log(productId)
+  const { addToCart } = useCart();
   const product = products.find((p) => p.id === productId);
 
   if (!product) {
@@ -60,6 +61,7 @@ export default function ProductDetailsPage() {
             whileTap={{ scale: 0.95 }}
             whileHover={{ scale: 1.05 }}
             className="flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded-xl font-semibold"
+            onClick={() => addToCart(product)}
           >
             <ShoppingCart size={18} />
             Add to Cart

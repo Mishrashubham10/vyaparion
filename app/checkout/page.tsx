@@ -42,6 +42,10 @@ export default function Checkout() {
     }, 1500);
   };
 
+  const handleOrder = () => {
+    router.push('/order-confirmation');
+  };
+
   const inputClass =
     'w-full px-4 py-3 rounded-xl bg-muted border border-border text-foreground text-sm focus:outline-none focus:border-accent transition-colors';
 
@@ -152,6 +156,7 @@ export default function Checkout() {
                   whileTap={{ scale: 0.98 }}
                   disabled={loading}
                   className="w-full py-3 rounded-xl bg-accent text-accent-foreground font-semibold text-sm glow-accent disabled:opacity-50 mt-4"
+                  onClick={handleOrder}
                 >
                   {loading
                     ? 'Processing...'
@@ -191,7 +196,7 @@ export default function Checkout() {
                 <div className="flex justify-between text-sm">
                   <span className="text-muted-foreground">Subtotal</span>
                   <span className="text-foreground">
-                    ${totalPrice.toLocaleString()}
+                    ₹{totalPrice.toLocaleString()}
                   </span>
                 </div>
                 <div className="flex justify-between text-sm">
@@ -217,4 +222,4 @@ export default function Checkout() {
       </section>
     </>
   );
-};
+}

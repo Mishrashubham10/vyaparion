@@ -12,7 +12,7 @@ const sections = [
   {
     title: 'Free Shipping',
     content:
-      'Orders above $500 qualify for free standard shipping within India. International orders above $2,000 qualify for free express shipping.',
+      'Orders above ₹5000 qualify for free standard shipping within India. International orders above ₹2,00000 qualify for free express shipping.',
   },
   {
     title: 'International Shipping',
