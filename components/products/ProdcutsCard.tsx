@@ -129,11 +129,11 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
           <span className="font-display font-bold text-lg text-foreground">
             {formatPrice(product.price)}
           </span>
-          {product.price && (
+          {/* {product.price && (
             <span className="text-sm text-muted-foreground line-through">
               {formatPrice(product.price)}
             </span>
-          )}
+          )} */}
         </div>
 
         {/* ============ AGE GROUP =========== */}
