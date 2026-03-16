@@ -14,7 +14,6 @@ import {
 import {
   fadeUp,
   staggerContainer,
-  scaleIn,
   slideInLeft,
   slideInRight,
 } from '@/lib/motion';
@@ -22,7 +21,6 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { SectionHeading } from './layouts/SectionHeading';
 import { products } from '@/data/products';
-import Image from 'next/image';
 import ProductCard from './products/ProdcutsCard';
 
 const featuredProducts = products.slice(0, 4);
